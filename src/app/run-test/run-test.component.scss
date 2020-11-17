@@ -1,0 +1,29 @@
+.container {
+    margin-top: 4rem;
+    margin-bottom: 2rem;
+    width: 30rem;
+    border: 1px solid black;
+    border-radius: 4px;
+    padding: 3rem;
+    .btn-submit {
+        font-weight: bolder;
+        background-color: black;
+        color: white;
+    }
+
+    .input-error {
+        border: red 1px solid;
+    }
+
+    .test-result {
+        margin-top: 2rem;
+
+        #result-title {
+            font-weight: 900;
+        }
+    }
+
+    .invalid-field {
+        color: red;
+    }
+}

@@ -1,1 +1,38 @@
-/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap");
+@import "~material-design-icons/iconfont/material-icons.css";
+
+// Fonts and reset
+html,
+body {
+    font-size: 16px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    color: black;
+    overflow-x: hidden;
+}
+
+@media (min-width: 1300px) {
+    // TODO Maybe not the best approach.
+    .container {
+        max-width: 100%;
+        padding: 0;
+    }
+}
+
+.material-icons {
+    font-size: 16px;
+    vertical-align: middle;
+}
+
+// setting global form-control styling
+.form-control {
+    font-size: 1.2rem;
+    font-weight: 900;
+    color: black;
+}

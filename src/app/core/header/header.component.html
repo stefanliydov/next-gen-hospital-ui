@@ -1,0 +1,40 @@
+<nav class="header-container">
+    <div class="logo-title-container">
+        <img src='../../assets/images/logo.png' id="logo">
+        <h1 id="header-title">Online Hospital</h1>
+    </div>
+
+    <div #navbarLink class="navbar-links">
+        <ul class="header-menu">
+
+            <ng-container *ngIf="isLoggedIn()">
+                <span class="material-icons user-icon">
+                    account_box
+                </span>
+                <div class="welcome-text">Hello, {{username}}</div>
+
+                <li class="header-item">
+                    <a class="header-link home-button" routerLink="/">Home</a>
+                </li>
+                <ng-container *ngIf="isPhysician()">
+                    <li class="header-item">
+                        <a class="header-link" routerLink="run-test">Run Test</a>
+                    </li>
+                </ng-container>
+
+                <li class="header-item">
+                    <a class="header-link" routerLink="logout">Logout</a>
+                </li>
+            </ng-container>
+
+            <ng-container *ngIf="!isLoggedIn()">
+                <li class="header-item">
+                    <a class="header-link" routerLink="login">Login</a>
+                </li>
+                <li class="header-item">
+                    <a class="header-link" routerLink="register">Register</a>
+                </li>
+            </ng-container>
+        </ul>
+    </div>
+</nav>

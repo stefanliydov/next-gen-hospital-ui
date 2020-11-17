@@ -1,0 +1,41 @@
+<div class="test-result-container" *ngIf="(testResultsDetails$ | async) as testResultsDetails">
+    <div class="form-fields">
+        <div class="form-group">
+            <label class="field-title text-border">Patient name</label>
+            <input type="text" class="form-control" placeholder="{{testResultsDetails.userName}}" readonly>
+        </div>
+        <div class="form-group">
+            <label class="field-title text-border">Phone number</label>
+            <input type="text" class="form-control" placeholder="{{testResultsDetails.userPhoneNumber}}" readonly>
+        </div>
+        <div class="form-group">
+            <label class="field-title text-border">Medical Results</label>
+            <input type="text" class="form-control" placeholder="{{testResultsDetails.result | doubleToPercentage}}"
+                readonly>
+        </div>
+        <div class="form-group">
+            <label class="field-title text-border">Patient email</label>
+            <input type="text" class="form-control" placeholder="{{testResultsDetails.userEmail}}" readonly>
+        </div>
+        <div class="form-group">
+            <label class="field-title text-border">Patient age</label>
+            <input type="text" class="form-control" placeholder="{{testResultsDetails.userAge}}" readonly>
+        </div>
+        <div class="form-group">
+            <label class="field-title text-border">DNA</label>
+            <input type="text" class="form-control" placeholder="{{testResultsDetails.dna}}" readonly>
+        </div>
+        <div class="form-group">
+            <label class="field-title text-border">Date</label>
+            <input type="datetime" class="form-control"
+                placeholder="{{testResultsDetails.creationDate | date:'medium'}}" readonly>
+        </div>
+        <div class="form-group">
+            <label class="field-title text-border">Symptoms</label>
+            <textarea class="form-control rounded-1 col" placeholder="{{testResultsDetails.symptoms}}"
+                readonly></textarea>
+        </div>
+
+    </div>
+
+</div>

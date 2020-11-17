@@ -1,0 +1,21 @@
+<div class="test-result-container" *ngIf="testResult">
+    <div class="form-fields">
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="{{testResult.userName}}" readonly>
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="{{testResult.userPhoneNumber}}" readonly>
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="{{testResult.result | doubleToPercentage}}" readonly>
+        </div>
+
+        <ng-container *ngIf="isPhysician()">
+            <div class="test-result-controls">
+                <button class="test-result-control" (click)="showMore()">SEE MORE</button>
+                <button class="test-result-control" (click)="redoTest()">REDO TEST</button>
+            </div>
+        </ng-container>
+    </div>
+
+</div>

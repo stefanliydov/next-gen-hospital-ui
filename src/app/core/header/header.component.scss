@@ -1,0 +1,66 @@
+.header-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    background-color: lightgray;
+
+    #logo {
+        width: 5.7rem;
+        height: 4.6rem;
+    }
+    #header-title {
+        font-size: 1.8rem;
+        font-weight: 700;
+        margin: 1.1rem 0rem 0rem 1.3rem;
+    }
+
+    .logo-title-container {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .welcome-text {
+        margin-right: 2rem;
+        font-size: 1.5rem;
+    }
+
+    .user-icon {
+        font-size: 1.8rem;
+        margin-right: 0.5rem;
+    }
+}
+
+ul.header-menu {
+    height: 30px;
+    display: flex;
+    align-items: center;
+    margin: 1rem 0 1rem 0;
+    font-size: 1rem;
+    font-weight: 600;
+
+    li.header-item {
+        list-style: none;
+        padding: 0.2rem 0.5rem;
+        margin: 1rem;
+        border: 1px solid black;
+        transition: all 0.1s ease-in-out;
+
+        &.sign-in {
+            border: 1px solid black;
+            border-radius: 3.5rem;
+            padding: 0.5rem 1.5rem;
+            font-weight: 700;
+        }
+
+        a.header-link {
+            color: black;
+            text-decoration: none;
+        }
+
+        &:hover {
+            transform: scale(1.03);
+            font-weight: bold;
+        }
+    }
+}

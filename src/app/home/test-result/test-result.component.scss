@@ -1,0 +1,29 @@
+.test-result-container {
+    width: 25rem;
+    border: 1px solid black;
+    border-radius: 4px;
+    padding: 1.5rem;
+
+    .test-result-controls {
+        margin-top: 2rem;
+        display: flex;
+
+        button:first-of-type {
+            margin-right: 3rem;
+        }
+
+        .test-result-control {
+            color: black;
+            text-decoration: none;
+            padding: 0.5rem;
+            font-weight: bolder;
+            outline: none;
+            transition: all 0.1s ease-in-out;
+            background: none;
+            border: none;
+            &:hover {
+                transform: scale(1.05);
+            }
+        }
+    }
+}

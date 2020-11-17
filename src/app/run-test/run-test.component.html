@@ -1,0 +1,22 @@
+<div class="container">
+    <form [formGroup]="runTestForm" (ngSubmit)="onSubmit()">
+        <fieldset>
+            <div class="form-group">
+                <label [ngClass]="{'invalid-field': validateField('username')}" for="username">Patient
+                    username*</label>
+                <input type="text" class="form-control run-test-field" formControlName="username" id="username">
+            </div>
+            <div class="form-group">
+                <label [ngClass]="{'invalid-field': validateField('dna')}" for="dna">DNA*</label>
+                <input type="text" class="form-control run-test-field" formControlName="dna" id="dna">
+            </div>
+            <div class="form-group">
+                <label class="field-title text-border">Symptoms</label>
+                <textarea class="form-control rounded-1 col" formControlName="symptoms" id="symptoms"></textarea>
+            </div>
+        </fieldset>
+        <div id="button-holder">
+            <button type="submit" [disabled]="!runTestForm.valid" class="btn-submit btn">RUN TEST</button>
+        </div>
+    </form>
+</div>

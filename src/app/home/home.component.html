@@ -1,0 +1,20 @@
+<div class="home-container">
+
+    <div class="search-form">
+        <input type="text" class="form-control" [(ngModel)]="testResultsFilter" (input)="performSearch()"
+            placeholder="Search">
+        <div class="input-group-append">
+            <span class="material-icons search-icon">search</span>
+        </div>
+    </div>
+
+    <ul class="test-results">
+        <li class="test-result" *ngFor="let testResult of testResultsFiltered">
+            <app-test-result [testResult]="testResult"></app-test-result>
+        </li>
+    </ul>
+
+    <div class="no-results-message" *ngIf="testResultsFiltered?.length === 0">
+        <h2>No DNA test results were found..</h2>
+    </div>
+</div>
