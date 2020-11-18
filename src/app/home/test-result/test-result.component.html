@@ -1,4 +1,4 @@
-<div class="test-result-container" *ngIf="testResult">
+<div class="container" *ngIf="testResult">
     <div class="form-fields">
         <div class="form-group">
             <input type="text" class="form-control" placeholder="{{testResult.userName}}" readonly>
@@ -12,8 +12,8 @@
 
         <ng-container *ngIf="isPhysician()">
             <div class="test-result-controls">
-                <button class="test-result-control" (click)="showMore()">SEE MORE</button>
-                <button class="test-result-control" (click)="redoTest()">REDO TEST</button>
+                <button class="test-result-control" (click)="showMore()">see more</button>
+                <button class="test-result-control" (click)="redoTest()">redo test</button>
             </div>
         </ng-container>
     </div>

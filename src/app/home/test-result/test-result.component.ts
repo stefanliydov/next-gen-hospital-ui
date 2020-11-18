@@ -8,14 +8,11 @@ import { UserService } from 'src/app/shared/services/user/user.service';
   templateUrl: './test-result.component.html',
   styleUrls: ['./test-result.component.scss']
 })
-export class TestResultComponent implements OnInit {
+export class TestResultComponent {
 
   @Input() testResult: ITestResult;
   constructor(private router: Router,
     private userService: UserService) { }
-
-  ngOnInit(): void {
-  }
 
   showMore() {
     this.router.navigateByUrl(`test-result/details/${this.testResult.id}`);

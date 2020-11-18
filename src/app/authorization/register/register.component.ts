@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { take } from 'rxjs/operators';
 import { IUserRegister } from 'src/app/shared/model/IUserRegister';
 import { AuthorizationService } from 'src/app/shared/services/authorization/authorization.service';
 
@@ -9,7 +10,7 @@ import { AuthorizationService } from 'src/app/shared/services/authorization/auth
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent {
 
   registerForm = this.fb.group({
     username: ['', Validators.required],
@@ -17,7 +18,7 @@ export class RegisterComponent implements OnInit {
     name: ['', Validators.required],
     phoneNumber: ['', Validators.required],
     age: ['', [Validators.max(100), Validators.min(1)]],
-    email: ['', Validators.required],
+    email: ['', [Validators.required, Validators.email]],
     role: ['', Validators.required]
   });
 
@@ -25,12 +26,9 @@ export class RegisterComponent implements OnInit {
     private authorizationService: AuthorizationService,
     private router: Router) { }
 
-  ngOnInit(): void {
-  }
-
   onSubmit() {
     const user = this.extractUserFromForm();
-    this.authorizationService.register(user).subscribe(
+    this.authorizationService.register(user).pipe(take(1)).subscribe(
       data => this.successfullyRegister(data),
       error => this.handleError(error));
   }
@@ -52,7 +50,9 @@ export class RegisterComponent implements OnInit {
     this.router.navigate(['login'])
   }
 
-  private handleError(error) {
-    alert(error.error.error);
+  private handleError(err) {
+    if (err.status == 409) {
+      alert(err.error.error);
+    }
   }
 }

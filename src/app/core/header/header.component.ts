@@ -13,18 +13,16 @@ export class HeaderComponent {
 
   username: string
 
-  constructor(
-    private cookieService: CookieWrapperService,
-    private userService: UserService,
-  ) { }
+  constructor(private userService: UserService) { }
 
-  isLoggedIn() {
-    if (this.cookieService.tokenExist(AuthKeywords.AUTH_TOKEN)) {
+  isLoggedIn(): boolean {
+    const isLogged: boolean = this.userService.isLogged();
+    if (isLogged) {
       this.username = this.userService.getLocalProperty(AuthKeywords.USERNAME);
-      return true;
     }
-    return false;
+    return isLogged;
   }
+
   isPhysician(): boolean {
     return this.userService.isPhysician();
   }

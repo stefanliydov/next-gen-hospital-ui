@@ -39,9 +39,15 @@ export class RunTestComponent implements OnInit {
     this.dnaTestService.runTest(dnaTest)
       .pipe(take(1))
       .subscribe(testResult =>
-        this.router.navigateByUrl(`test-result/details/${testResult.id}`)
+        this.router.navigateByUrl(`test-result/details/${testResult.id}`),
+        error => this.handleError(error)
       );
 
+  }
+
+  validateField(fieldName: string) {
+    const field = this.runTestForm.get(fieldName);
+    return field.invalid && field.touched;
   }
 
   private setCurrentTestResultDetails(id: string) {
@@ -69,8 +75,9 @@ export class RunTestComponent implements OnInit {
 
   }
 
-  validateField(fieldName: string) {
-    const field = this.runTestForm.get(fieldName);
-    return field.invalid && field.touched;
+  private handleError(err): void {
+    if (err.status == 404) {
+      alert(err.error.error);
+    }
   }
 }

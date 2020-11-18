@@ -22,6 +22,10 @@ export class UserService {
     return this.storageService.getProperty(key);
   }
 
+  isLogged(): boolean {
+    return this.cookieService.tokenExist(AuthKeywords.AUTH_TOKEN)
+  }
+
   isPhysician(): boolean {
     if (this.cookieService.tokenExist(AuthKeywords.AUTH_TOKEN) && this.getLocalProperty(AuthKeywords.ROLES)) {
       return this.getLocalProperty(AuthKeywords.ROLES).indexOf(Roles.MEDICAL_PHYSICIAN) !== -1;

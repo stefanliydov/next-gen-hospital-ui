@@ -7,15 +7,16 @@ import {
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { CookieWrapperService } from '../shared/services/cookie-wrapper/cookie-wrapper.service';
+import { AuthKeywords } from '../shared/contants/contants';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
 
-  constructor(private cookeService: CookieWrapperService) { }
+  constructor(private cookieService: CookieWrapperService) { }
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
 
-    const token = this.cookeService.getToken('auth_token');
+    const token = this.cookieService.getToken(AuthKeywords.AUTH_TOKEN);
     let headers = token
       ? {
         'Authorization': `Bearer ${token}`,

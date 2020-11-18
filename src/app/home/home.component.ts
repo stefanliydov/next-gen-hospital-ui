@@ -20,6 +20,7 @@ export class HomeComponent implements OnInit {
     this.fetchAllTests();
   }
 
+
   performSearch() {
     this.testResultsFiltered = this.testResults.filter(result => this.filterResultList(result));
   }
@@ -34,8 +35,9 @@ export class HomeComponent implements OnInit {
   }
 
   private filterResultList(result: ITestResult): boolean {
-    return result.userName?.indexOf(this.testResultsFilter) !== -1 ||
-      result.userPhoneNumber?.indexOf(this.testResultsFilter) !== -1;
+    return result.userName && result.userPhoneNumber &&
+      result.userName.indexOf(this.testResultsFilter) !== -1 ||
+      result.userPhoneNumber.indexOf(this.testResultsFilter) !== -1;
   }
 
 }

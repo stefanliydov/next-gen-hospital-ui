@@ -2,6 +2,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { take } from 'rxjs/operators';
 import { AuthKeywords } from 'src/app/shared/contants/contants';
 import { IUserLogin } from 'src/app/shared/model/IUserLogin';
 import { AuthorizationService } from 'src/app/shared/services/authorization/authorization.service';
@@ -13,7 +14,7 @@ import { UserService } from 'src/app/shared/services/user/user.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
 
   loginForm = this.fb.group({
     username: ['', Validators.required],
@@ -26,12 +27,9 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private userService: UserService) { }
 
-  ngOnInit(): void {
-  }
-
   onSubmit() {
     const user: IUserLogin = this.extractUserFromForm();
-    this.authorizationService.login(user).subscribe(
+    this.authorizationService.login(user).pipe(take(1)).subscribe(
       data => this.handleSuccessfullLogin(data),
       error => this.handleErrors(error));
   }

@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { APIUrl } from '../../contants/contants';
 import { IRunTest } from '../../model/IRunTest';
 import { ITestResult } from '../../model/ITestResult';
 import { ITestResultDetails } from '../../model/ITestResultDetails';
@@ -10,7 +11,7 @@ import { ITestResultDetails } from '../../model/ITestResultDetails';
 })
 export class DnaTestService {
 
-  private readonly baseApiUrl = `http://localhost:8080/tests`;
+  private readonly baseApiUrl = `${APIUrl.BACK_END_URL}/tests`;
 
   constructor(private http: HttpClient) { }
 

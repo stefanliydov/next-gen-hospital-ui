@@ -10,29 +10,38 @@ body {
     font-weight: 700;
 }
 
-body {
-    margin: 0;
-    padding: 0;
-    color: black;
-    overflow-x: hidden;
-}
-
-@media (min-width: 1300px) {
-    // TODO Maybe not the best approach.
-    .container {
-        max-width: 100%;
-        padding: 0;
-    }
-}
-
 .material-icons {
     font-size: 16px;
     vertical-align: middle;
+}
+
+.container-fluid {
+    padding: 0;
 }
 
 // setting global form-control styling
 .form-control {
     font-size: 1.2rem;
     font-weight: 900;
-    color: black;
+}
+
+.container {
+    margin-top: 4rem;
+    margin-bottom: 2rem;
+    width: 30rem;
+    border: 1px solid black;
+    border-radius: 4px;
+    padding: 3rem;
+    .btn-submit {
+        font-weight: bolder;
+        background-color: black;
+        color: white;
+    }
+    .test-result {
+        margin-top: 2rem;
+
+        #result-title {
+            font-weight: 900;
+        }
+    }
 }
